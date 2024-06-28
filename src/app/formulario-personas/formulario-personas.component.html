@@ -1,0 +1,24 @@
+<form [formGroup]="personas" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" class="form-control">
+    <div *ngFor="let error of getErrorMessages('nombre')" class="error">
+      {{ error }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="edad">Edad:</label>
+    <input id="edad" formControlName="edad" class="form-control">
+    <div *ngFor="let error of getErrorMessages('edad')" class="error">
+      {{ error }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="dpi">DPI:</label>
+    <input id="dpi" formControlName="dpi" class="form-control">
+    <div *ngFor="let error of getErrorMessages('dpi')" class="error">
+      {{ error }}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="personas.invalid">Agregar Usuario</button>
+</form>
