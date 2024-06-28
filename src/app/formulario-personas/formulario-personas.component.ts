@@ -15,7 +15,7 @@ export class FormularioPersonasComponent implements OnInit {
   errorMessages: { [key: string]: { [key: string]: string } } = {
     nombre: {
       required: 'El nombre es obligatorio.',
-      minlength: 'El nombre debe tener al menos 10 letras.',
+      minlength: 'El nombre debe tener al menos 4 letras.',
       pattern: 'El nombre solo puede contener letras.'
     },
     edad: {
@@ -35,7 +35,7 @@ export class FormularioPersonasComponent implements OnInit {
 
   ngOnInit() {
     this.personas = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[a-zA-Z ]*$')]],
+      nombre: ['', [Validators.required, Validators.minLength(4), Validators.pattern('^[a-zA-Z ]*$')]],
       edad: ['', [Validators.required, Validators.min(0), Validators.pattern('^[0-9]*$')]],
       dpi: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(13), Validators.pattern('^[0-9]*$')]]
     });
